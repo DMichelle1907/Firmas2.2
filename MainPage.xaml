@@ -9,8 +9,8 @@
         <mct:DrawingView
                 x:Name="drawingView"
                 BackgroundColor="LightGray"
-                WidthRequest="200"
-                HeightRequest="200"
+                WidthRequest="300"
+                HeightRequest="300"
                 HorizontalOptions="Center"/>
         
 
@@ -18,7 +18,7 @@
         <Entry x:Name="Descripcion" Placeholder="Descripción" Margin="0,0,0,10"/>
 
         <StackLayout Orientation="Horizontal">
-            <Button x:Name="btnGuardar" Text="Guardar en SQLite" Clicked="btnGuardar_Clicked" BackgroundColor="#4CAF50" TextColor="White" Margin="10,0,10,0" />
+            <Button x:Name="btnGuardar" Text="Guardar Firma" Clicked="btnGuardar_Clicked" BackgroundColor="#2196F3" TextColor="White" Margin="10,0,10,0" />
             <Button x:Name="btnLista" Text="Ver Firmas" Clicked="btnLista_Clicked" BackgroundColor="#2196F3" TextColor="White" Margin="60,0,10,0"/>
         </StackLayout>
     </StackLayout>

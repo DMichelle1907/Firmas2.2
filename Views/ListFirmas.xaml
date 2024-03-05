@@ -5,7 +5,7 @@
              x:Class="Ejercicio2_2.Views.Lista"
              Title="Lista">
     <ContentPage.ToolbarItems>
-        <ToolbarItem Text="Agregar Persona"
+        <ToolbarItem Text="Agregar Firma"
                      x:Name="toolmenu"
                      Order="Primary"
                      Priority="0"
