@@ -13,8 +13,8 @@
                 HeightRequest="200"
                 HorizontalOptions="Center"/>
 
-        <Entry x:Name="txtNombre" Placeholder="Nombre" Margin="0,10,0,10"/>
-        <Entry x:Name="txtDescripcion" Placeholder="Descripción" Margin="0,0,0,10"/>
+        <Entry x:Name="Nombre" Placeholder="Nombre" Margin="0,10,0,10"/>
+        <Entry x:Name="Descripcion" Placeholder="Descripción" Margin="0,0,0,10"/>S
 
         <StackLayout Orientation="Horizontal">
             <Button x:Name="btnGuardar" Text="Guardar en SQLite" Clicked="btnGuardar_Clicked" BackgroundColor="#4CAF50" TextColor="White" Margin="10,0,10,0" />

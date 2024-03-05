@@ -10,7 +10,7 @@ namespace Ejercicio2_2.Models
     public class Firmas
     {
         [PrimaryKey, AutoIncrement]
-        public int codigo { get; set; }
+        public int id{ get; set; }
 
         [MaxLength(250)]
         public string nombre { get; set; }
@@ -18,14 +18,14 @@ namespace Ejercicio2_2.Models
         [MaxLength(250)]
         public string descripcion { get; set; }
 
-        public byte[] imgM { get; set; }
+        public byte[] img { get; set; }
 
         [Ignore] // Indica a SQLite que ignore esta propiedad al crear la tabla
-        public ImageSource ImgM
+        public ImageSource Img
         {
             get
             {
-                if (imgM != null)
+                if (img != null)
                 {
                     return ImageSource.FromStream(() => new MemoryStream(imgM));
                 }

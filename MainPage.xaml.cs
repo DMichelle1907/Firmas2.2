@@ -1,15 +1,26 @@
-﻿using CommunityToolkit.Maui.Views;
+﻿using CommunityToolkit.Maui.Core;
+using CommunityToolkit.Maui.Views;
 using Ejercicio2_2.Models;
 using Ejercicio2_2.Views;
 using SQLite;
+using System.Collections.ObjectModel;
 
 namespace Ejercicio2_2
 {
     public partial class MainPage : ContentPage
     {
+        FirmaControllers controller;
+        // Controllers.RegistroController registro;
         public MainPage()
         {
+            controller = new FirmaControllers();
             InitializeComponent();
+            var drawingView = new DrawingView
+            {
+                Lines = new ObservableCollection<IDrawingLine>(),
+                LineColor = Colors.Red,
+                LineWidth = 5
+            };
         }
 
         private async void btnGuardar_Clicked(object sender, EventArgs e)
@@ -17,7 +28,7 @@ namespace Ejercicio2_2
             try
             {
                 // Verificar que todos los campos estén llenos
-                if (string.IsNullOrWhiteSpace(txtNombre.Text) || string.IsNullOrWhiteSpace(txtDescripcion.Text))
+                if (string.IsNullOrWhiteSpace(Nombre.Text) || string.IsNullOrWhiteSpace(Descripcion.Text))
                 {
                     await MostrarAlerta("Error", "Por favor, complete todos los campos y firme antes de guardar.");
                     return;
@@ -32,15 +43,17 @@ namespace Ejercicio2_2
                     return;
                 }
 
-                Constructor nuevoConstructor = new Constructor
+                Models.Firmas Firmas = new Models.Firmas
                 {
-                    nombre = txtNombre.Text,
-                    descripcion = txtDescripcion.Text,
-                    imgM = imagenBytes
+                    nombre = Nombre.Text,
+                    descripcion = Descripcion.Text,
+                    img= imagenBytes
                 };
+                if (await this.controller.AgregarFirma(Firmas) > 0)
+                {
+                    await DisplayAlert("Éxito", "Registro guardado exitosamente.", "OK");
 
-                var resultado = await App.BaseDatos.EmpleadoGuardar(nuevoConstructor);
-
+                }
                 LimpiarCampos();
 
                 ((DrawingView)this.FindByName<DrawingView>("drawingView")).Clear();
@@ -69,8 +82,8 @@ namespace Ejercicio2_2
 
         private void LimpiarCampos()
         {
-            txtNombre.Text = "";
-            txtDescripcion.Text = "";
+            Nombre.Text = "";
+            Descripcion.Text = "";
         }
 
         private async Task MostrarAlerta(string titulo, string mensaje)
