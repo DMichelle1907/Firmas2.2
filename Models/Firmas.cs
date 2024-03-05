@@ -27,7 +27,7 @@ namespace Ejercicio2_2.Models
             {
                 if (img != null)
                 {
-                    return ImageSource.FromStream(() => new MemoryStream(imgM));
+                    return ImageSource.FromStream(() => new MemoryStream(img));
                 }
                 return null;
             }

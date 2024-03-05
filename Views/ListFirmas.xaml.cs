@@ -16,6 +16,7 @@ public partial class Lista : ContentPage
     {
         base.OnAppearing();
 
-        listapersonas.ItemsSource = await App.BaseDatos.ObtenerEmpleado();
+
+        listapersonas.ItemsSource = await App.DataBase.ObtenerFirma();
     }
 }

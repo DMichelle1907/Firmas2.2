@@ -22,7 +22,7 @@ namespace Ejercicio2_2.Models
 
             _connection.CreateTableAsync<Firmas>();
         }
-
+        //jnswjsnqwjsk
         // CREATE
         public async Task<int> AgregarFirma(Firmas firma)
         {

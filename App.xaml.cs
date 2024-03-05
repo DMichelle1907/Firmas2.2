@@ -5,20 +5,21 @@ namespace Ejercicio2_2
 {
     public partial class App : Application
     {
-        static BasedeDatos basedatos;
+            static FirmaControllers firma;
 
-        public static BasedeDatos BaseDatos
-        {
-            get
+            public static FirmaControllers DataBase
             {
-                if (basedatos == null)
+                get
                 {
-                    basedatos = new BasedeDatos(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "firmas.db3"));
+                    if (firma == null)
+                    {
+                        firma = new FirmaControllers();
+                    }
+                    return firma;
                 }
-                return basedatos;
             }
-        }
 
+        
         public App()
         {
             InitializeComponent();
